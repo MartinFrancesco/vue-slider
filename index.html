@@ -17,7 +17,9 @@
     <div id="app">
 
       <div class="slider">
-        <div class="images" @mouseenter="stopLoop">
+        <div class="images"
+             @mouseenter="stopLoop"
+             @mouseleave="startLoop">
           <img v-bind:src="photos[indexPhoto]" alt="">
         </div>
 
