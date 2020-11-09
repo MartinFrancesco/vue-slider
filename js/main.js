@@ -10,11 +10,16 @@ const app = new Vue({
       'img/image2.jpg',
       'img/image3.jpg',
       'img/image4.jpg',
-    ]
+    ],
+    intervalId: 0
+  },
+
+  created() {
+    this.startLoop();
   },
 
   methods: {
-    nextPhoto: function() {
+    nextPhoto() {
       this.indexPhoto += 1;
 
       if (this.indexPhoto === this.photos.length) {
@@ -31,8 +36,12 @@ const app = new Vue({
     circleNav: function(index) {
 
       this.indexPhoto = index;
-
+    },
+    startLoop() {
+      this.intervalId = setInterval(function() {
+        this.nextPhoto();
+      }, 3000);
     }
-  },
+  }
 
 });
