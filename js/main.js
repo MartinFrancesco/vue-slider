@@ -19,7 +19,7 @@ const app = new Vue({
   },
 
   methods: {
-    nextPhoto() {
+    nextPhoto: function() {
       this.indexPhoto += 1;
 
       if (this.indexPhoto === this.photos.length) {
@@ -38,7 +38,7 @@ const app = new Vue({
       this.indexPhoto = index;
     },
     startLoop() {
-      this.intervalId = setInterval(function() {
+      this.intervalId = setInterval(() => {
         this.nextPhoto();
       }, 3000);
     }
